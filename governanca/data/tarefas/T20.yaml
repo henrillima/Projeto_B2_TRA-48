@@ -1,0 +1,19 @@
+id: tarefa:T20
+kind: tarefa
+titulo: "Descrever a variável resposta e suas estatísticas"
+status: revisao
+prazo: 2026-11-03
+prioridade: alta
+estimativa_h: 3
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M2"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T12"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Distribuição, assimetria, cauda, massa em valores baixos. Decide se o alvo entra bruto, em log ou winsorizado — e isso é decisão a registrar."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Codigo pronto em Script 01, Etapa 1. Falta rodar no Mac e revisar o resultado."

@@ -1,0 +1,18 @@
+id: pendencia:P05
+kind: pendencia
+titulo: "A base de teste traz crwy, e taxitime = crwy - cpush exatamente: o alvo vaza"
+status: fechada
+criado_em: 2026-11-04
+descricao: |
+  No treino, taxitime e igual a crwy - cpush em todos os 6.426 voos (diferenca maxima 0,0000 s).
+  A base de teste traz crwy preenchido para os 1.607 voos, entao a resposta do desafio sai de uma
+  subtracao, com RMSE = 0. crwy e o horario de decolagem: nao existe no momento do pushback, que
+  e quando a previsao tem utilidade operacional, e nao pode ser feature. Avisar a professora Mayara
+  antes de 18/11, porque o ranking da submissao e por RMSE. Ate a resposta dela, crwy fica fora
+  do modelo.
+arestas:
+  - {rel: BLOQUEIA, dst: "tarefa:T40"}
+notas:
+  - data: 2026-11-14
+    autor: henri
+    texto: "Interpretacao reconferida em 14/11: no teste, crwy - cpush tem a mesma distribuicao do taxitime do treino (KS D=0,027, p=0,31), mesma correlacao com nactive (0,71 x 0,68) e mesmas medianas por cabeceira; o crwy do teste e o horario real de decolagem. Nao se sabe se foi intencional. Decisao do grupo: nao avisar a professora e nao usar crwy em nenhum modelo."

@@ -1,0 +1,11 @@
+id: meta:M5
+kind: meta
+titulo: "Manter o trabalho reprodutível e auditável de ponta a ponta"
+status: aberta
+criado_em: 2026-10-06
+descricao: |
+  Pipeline `targets`, ambiente fixado com `renv`, seed declarada, grafo de governança
+  validado no CI e site publicado. Diferente do Projeto B1, o enunciado do B2 não
+  atribui nota explícita a processo — ver decisao:D04. Fazemos assim porque um Data
+  Challenge em que não se consegue reproduzir o número submetido é um resultado que
+  não se pode defender na arguição.

@@ -1,0 +1,16 @@
+id: tarefa:T42
+kind: tarefa
+titulo: "Escrever o relatório nas seis seções exigidas"
+status: backlog
+prazo: 2026-12-01
+prioridade: alta
+estimativa_h: 16
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M4"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T35"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "02/12, vale 100% do exame. As seis seções estão no slide 7 do planejamento: problema, pré-processamento, EDA, métodos, resultados, conclusões."

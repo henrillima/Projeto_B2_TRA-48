@@ -1,0 +1,15 @@
+id: tarefa:T43
+kind: tarefa
+titulo: "Revisar a literatura de predição de tempo de táxi na partida"
+status: pronta
+prazo: 2026-10-27
+prioridade: media
+estimativa_h: 8
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M4"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Taxi-out prediction é problema clássico em ATM. Confirmar autor, ano, periódico e DOI de cada referência antes de citar, e não citar formulação de artigo não lido — regra 4 do B1."

@@ -1,0 +1,24 @@
+id: decisao:D01
+kind: decisao
+titulo: "Abrir um repositório novo para o B2, reaproveitando a infraestrutura de governança do B1"
+status: vigente
+criado_em: 2026-10-06
+descricao: |
+  `Projeto_B2_TRA-48` é um repositório próprio, que importa de `Projeto_B1_TRA-48` o
+  schema do grafo, o validador, o compilador YAML->DuckDB, o gerador de site, a CLI, o
+  Makefile e os dois workflows. O grafo começa vazio, com as metas do B2.
+  
+  O B1 e o B2 são projetos diferentes, com problemas, grupos e prazos diferentes, e a
+  métrica de cadência publicada pelo site é por repositório: misturar os dois tornaria
+  ilegível a cadência de cada um. A infraestrutura, por outro lado, não tem nada de
+  específico do B1 — ela não sabe o que é um vertiporto.
+alternativas_descartadas:
+  - opcao: "Continuar dentro de Projeto_B1_TRA-48, numa pasta b2/"
+    por_que_nao: "O histórico de commits e o gráfico de cadência passariam a medir dois projetos somados, e o site publicaria um grafo com duas componentes desconexas."
+  - opcao: "Começar a governança do zero, mais simples"
+    por_que_nao: "Jogaria fora infraestrutura que já funciona e já passou pelo CI; o custo marginal de copiar é de minutos."
+  - opcao: "Usar GitHub Projects / Issues em vez do grafo"
+    por_que_nao: "Não é versionado junto com o código, não valida referências e não gera o site com a trilha — e a trilha é o que permite reconstruir por que uma feature existe."
+arestas:
+  - {rel: DECIDE_SOBRE, dst: "meta:M5"}
+  - {rel: ASSINADA_POR, dst: "pessoa:henri"}

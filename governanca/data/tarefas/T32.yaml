@@ -1,0 +1,19 @@
+id: tarefa:T32
+kind: tarefa
+titulo: "Treinar o SVM e a rede neural (M4 e M5)"
+status: revisao
+prazo: 2026-11-12
+prioridade: alta
+estimativa_h: 5
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M3"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T30"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "xgboost via tidymodels. Dois métodos é o mínimo do enunciado; se houver folga, uma rede neural como terceiro."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Reescopada pela decisao:D05 em 14/11. Titulo anterior: Treinar o segundo modelo: gradient boosting."

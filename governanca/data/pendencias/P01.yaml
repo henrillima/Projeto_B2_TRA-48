@@ -1,0 +1,15 @@
+id: pendencia:P01
+kind: pendencia
+titulo: "O grupo do Projeto B2 ainda não está definido"
+status: fechada
+criado_em: 2026-10-06
+descricao: |
+  O projeto é em grupo, mas a composição não foi acordada. Até resolver, todas as tarefas
+  estão atribuídas a pessoa:henri, o que distorce qualquer leitura de carga. Resolver na
+  aula de 08/10 e, no mesmo dia, criar os nós de pessoa e redistribuir as atribuições.
+arestas:
+  - {rel: BLOQUEIA, dst: "tarefa:T05"}
+notas:
+  - data: 2026-11-14
+    autor: henri
+    texto: "Grupo definido: Henri Leonardo, Antonio Garcia e Gilberto Patri. Nome no arquivo de submissao: HenriAntonioGilberto (trocar no Script 05 se o grupo tiver nome oficial)."

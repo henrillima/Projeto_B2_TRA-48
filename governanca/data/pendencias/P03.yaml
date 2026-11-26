@@ -1,0 +1,17 @@
+id: pendencia:P03
+kind: pendencia
+titulo: "Não se sabe se a mudança para quinta-feira alcança a apresentação de 25/11 e a liberação da base em 28/10"
+status: fechada
+criado_em: 2026-10-06
+descricao: |
+  O e-mail da professora Mayara move as aulas para quinta-feira, 14h-17h, exceto as
+  semanas 3 e 6, que ficam na quarta, 9h-12h. Fala de "aulas". A apresentação do projeto
+  (semana 8) e a liberação da base (semana 4, 28/10) estão no planejamento como
+  quartas-feiras. A liberação da Prova B2 tem hora explícita no PDF (18/11, 9:00) e foi
+  mantida. Perguntar no Classroom.
+arestas:
+  - {rel: BLOQUEIA, dst: "tarefa:T40"}
+notas:
+  - data: 2026-11-04
+    autor: henri
+    texto: "A tarefa do Classroom fixa a apresentacao em 25/11, 9:00 (20 min + 10 min de perguntas). A base saiu em 28/10, como no planejamento."

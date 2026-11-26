@@ -1,0 +1,19 @@
+id: tarefa:T34
+kind: tarefa
+titulo: "Comparar os modelos com histograma de erros e RMSE, MAE e MAPE"
+status: revisao
+prazo: 2026-11-15
+prioridade: alta
+estimativa_h: 4
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M3"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T33"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "As três métricas e o histograma são exigidos nominalmente. MAPE explode perto de zero: se a resposta tiver táxis muito curtos, dizer isso em vez de mostrar um número sem sentido."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Codigo pronto em Script 04, Etapas 1 a 3. Falta rodar no Mac e revisar o resultado."

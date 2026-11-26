@@ -1,0 +1,21 @@
+id: decisao:D06
+kind: decisao
+titulo: "Submeter o SVM de regressão (radial, cost 3, gamma 0,095, epsilon 0,4) treinado nos 6.426 voos, com n_push30 e sem retirar anômalos"
+status: vigente
+criado_em: 2026-11-18
+descricao: |
+  Hiperparâmetros do SVM escolhidos por validação cruzada 10-fold dentro do treino, numa grade conjunta
+  de custo (0,3 a 10), gamma (1 a 8 x padrão) e epsilon (0,05 a 0,8); ótimo no interior da grade.
+  Hold-out interno (1.607 voos): SVM RMSE 130,3 s, MAE 102,3 s; árvore (60 folhas) 137,3 / 106,5;
+  rede neural (3 neurônios) 142,7 / 108,7; regressão linear 146,8 / 114,0; kNN (k = 5) 171,1 / 125,5;
+  baselines 251,3 e 277,0. Bootstrap pareado (B = 2000): todos ficam atrás do SVM (árvore +7,0 s,
+  IC 95% de 2,4 a 12,0). Experimentos por CV dentro do treino: n_push30 reduz o RMSE em 1,2 s
+  (IC 0,2 a 2,2), adotado; retirar anômalos piora 8,1 s, descartado.
+alternativas_descartadas:
+  - opcao: "SVM com epsilon padrão (cost 1, gamma 0,095, epsilon 0,1), primeira versão do arquivo"
+    por_que_nao: "A grade conjunta achou cost 3 e epsilon 0,4: 1,3 s melhor na validação cruzada e 2,6 s melhor no hold-out (IC pareado 0,5 a 4,7). O custo 1 estava na borda da grade antiga."
+  - opcao: "Árvore de regressão podada (60 folhas)"
+    por_que_nao: "7,0 s pior que o SVM no hold-out, com IC pareado acima de zero; fica como modelo de interpretação no relatório."
+arestas:
+  - {rel: DECIDE_SOBRE, dst: "meta:M4"}
+  - {rel: ASSINADA_POR, dst: "pessoa:henri"}

@@ -1,0 +1,16 @@
+id: tarefa:T41
+kind: tarefa
+titulo: "Montar a apresentação do projeto"
+status: backlog
+prazo: 2026-11-24
+prioridade: alta
+estimativa_h: 8
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M4"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T35"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "25/11, vale 30% do bimestre. Estrutura espelha as seis seções do relatório; a arguição vai nas decisões de pré-processamento."

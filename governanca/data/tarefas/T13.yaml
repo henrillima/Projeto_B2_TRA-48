@@ -1,0 +1,19 @@
+id: tarefa:T13
+kind: tarefa
+titulo: "Tratar faltantes e outliers com critério registrado"
+status: revisao
+prazo: 2026-11-03
+prioridade: alta
+estimativa_h: 4
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M1"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T12"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Cada regra de descarte ou imputação virá acompanhada de quantas linhas afeta. Descarte não contabilizado é viés não declarado."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Codigo pronto em Script 02, Etapa 5 (anomalias detectadas, remocao testada no Script 04). Falta rodar no Mac e revisar o resultado."

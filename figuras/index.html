@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projeto B2 · figuras e resultados</title>
+<style>
+  :root { --fundo:#fcfcfb; --cartao:#ffffff; --texto:#0b0b0b; --suave:#52514e; --grade:#e4e3df; --azul:#2a78d6; }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--fundo); color:var(--texto); font:15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif }
+  header { padding:28px 32px 12px }
+  header h1 { margin:0 0 4px; font-size:22px }
+  header p { margin:0; color:var(--suave) }
+  nav { position:sticky; top:0; z-index:2; background:var(--fundo); border-bottom:1px solid var(--grade); padding:10px 32px; display:flex; gap:18px; flex-wrap:wrap }
+  nav a { color:var(--suave); text-decoration:none; font-weight:600 }
+  nav a:hover { color:var(--azul) }
+  section { padding:8px 32px 28px }
+  h2 { font-size:18px; margin:24px 0 12px; padding-top:8px }
+  h3 { font-size:14px; color:var(--suave); margin:22px 0 8px; font-weight:600 }
+  .grade { display:grid; grid-template-columns:repeat(auto-fill, minmax(420px, 1fr)); gap:16px }
+  figure { margin:0; background:var(--cartao); border:1px solid var(--grade); border-radius:8px; overflow:hidden }
+  figure img { width:100%; display:block; cursor:zoom-in }
+  #zoom { display:none; position:fixed; inset:0; z-index:10; background:rgba(11,11,11,.88); cursor:zoom-out; align-items:center; justify-content:center; padding:16px }
+  #zoom.aberto { display:flex }
+  #zoom img { max-width:100%; max-height:100%; background:#fff; border-radius:6px }
+  figcaption { padding:8px 12px; font-size:13px; color:var(--suave); border-top:1px solid var(--grade) }
+  .tab { overflow-x:auto; background:var(--cartao); border:1px solid var(--grade); border-radius:8px; margin-bottom:12px }
+  table { border-collapse:collapse; font-size:13px; font-variant-numeric:tabular-nums; width:100% }
+  th, td { padding:5px 10px; border-bottom:1px solid var(--grade); text-align:left; white-space:nowrap }
+  th { background:#f3f2ef; position:sticky; top:0 }
+  pre { background:var(--cartao); border:1px solid var(--grade); border-radius:8px; padding:10px 12px; font-size:12.5px; overflow-x:auto }
+  @media (max-width:520px) { .grade { grid-template-columns:1fr } section, header, nav { padding-left:16px; padding-right:16px } nav { position:static; gap:6px 14px; font-size:14px } }
+</style></head><body>
+<header><h1>Projeto B2 · tempo de táxi na partida em SBGR</h1>
+<p>TRA-48 · Henri Leonardo, Antonio Garcia e Gilberto Patri · gerado em 26/11/2026 15:57 · clique numa figura para ampliar</p></header>
+<nav>
+<a href="#s01">01 · Exploração</a>
+<a href="#s02">02 · Pré-processamento e anomalias</a>
+<a href="#s03">03 · Modelos e validação cruzada</a>
+<a href="#s04">04 · Avaliação e escolha do modelo</a>
+<a href="#s05">05 · Submissão</a>
+<a href="#s06">06 · Sensibilidade do SVM</a>
+<a href="#logs">Logs</a>
+</nav>
+<section id="s01"><h2>01 · Exploração</h2>
+<div class="grade">
+<figure><img loading="lazy" src="01_00_vazamento_crwy.png" alt="vazamento crwy"><figcaption><b>01_00</b> · vazamento crwy</figcaption></figure>
+<figure><img loading="lazy" src="01_01_histograma_taxitime.png" alt="histograma taxitime"><figcaption><b>01_01</b> · histograma taxitime</figcaption></figure>
+<figure><img loading="lazy" src="01_02_boxplot_taxitime.png" alt="boxplot taxitime"><figcaption><b>01_02</b> · boxplot taxitime</figcaption></figure>
+<figure><img loading="lazy" src="01_03_barplots_amostra.png" alt="barplots amostra"><figcaption><b>01_03</b> · barplots amostra</figcaption></figure>
+<figure><img loading="lazy" src="01_04_boxplot_runway.png" alt="boxplot runway"><figcaption><b>01_04</b> · boxplot runway</figcaption></figure>
+<figure><img loading="lazy" src="01_05_boxplot_wtc_wx.png" alt="boxplot wtc wx"><figcaption><b>01_05</b> · boxplot wtc wx</figcaption></figure>
+<figure><img loading="lazy" src="01_06_boxplot_airline.png" alt="boxplot airline"><figcaption><b>01_06</b> · boxplot airline</figcaption></figure>
+<figure><img loading="lazy" src="01_07_boxplot_hora.png" alt="boxplot hora"><figcaption><b>01_07</b> · boxplot hora</figcaption></figure>
+<figure><img loading="lazy" src="01_08_scatter_nactive.png" alt="scatter nactive"><figcaption><b>01_08</b> · scatter nactive</figcaption></figure>
+<figure><img loading="lazy" src="01_09_pairs.png" alt="pairs"><figcaption><b>01_09</b> · pairs</figcaption></figure>
+<figure><img loading="lazy" src="01_10_correlograma.png" alt="correlograma"><figcaption><b>01_10</b> · correlograma</figcaption></figure>
+<figure><img loading="lazy" src="01_11_heatmap_correlacao.png" alt="heatmap correlacao"><figcaption><b>01_11</b> · heatmap correlacao</figcaption></figure>
+<figure><img loading="lazy" src="01_12_vento_runway.png" alt="vento runway"><figcaption><b>01_12</b> · vento runway</figcaption></figure>
+<figure><img loading="lazy" src="01_13_pca.png" alt="pca"><figcaption><b>01_13</b> · pca</figcaption></figure>
+</div>
+<h3>01_tabela_descritiva_taxitime.csv</h3>
+<div class="tab"><table>
+<tr><th>grupo</th><th>n</th><th>media</th><th>mediana</th><th>desvio_padrao</th><th>minimo</th><th>q1</th><th>q3</th><th>maximo</th></tr>
+<tr><td>Geral</td><td>6426</td><td>871.4</td><td>826.7</td><td>271.2</td><td>434</td><td>678.5</td><td>1003.3</td><td>2167.9</td></tr>
+<tr><td>10L</td><td>4562</td><td>788.6</td><td>751.5</td><td>210.6</td><td>434</td><td>631.3</td><td>909.7</td><td>1736.4</td></tr>
+<tr><td>28R</td><td>1864</td><td>1074.2</td><td>985.5</td><td>295.2</td><td>599.3</td><td>865.4</td><td>1220.8</td><td>2167.9</td></tr>
+</table></div>
+</section>
+<section id="s02"><h2>02 · Pré-processamento e anomalias</h2>
+<div class="grade">
+<figure><img loading="lazy" src="02_01_taxitime_por_regiao.png" alt="taxitime por regiao"><figcaption><b>02_01</b> · taxitime por regiao</figcaption></figure>
+<figure><img loading="lazy" src="02_02_anomalias_cotovelo_silhouette.png" alt="anomalias cotovelo silhouette"><figcaption><b>02_02</b> · anomalias cotovelo silhouette</figcaption></figure>
+<figure><img loading="lazy" src="02_03_anomalias_criterios.png" alt="anomalias criterios"><figcaption><b>02_03</b> · anomalias criterios</figcaption></figure>
+<figure><img loading="lazy" src="02_04_anomalias_consenso.png" alt="anomalias consenso"><figcaption><b>02_04</b> · anomalias consenso</figcaption></figure>
+<figure><img loading="lazy" src="02_05_anomalias_silhouette_plot.png" alt="anomalias silhouette plot"><figcaption><b>02_05</b> · anomalias silhouette plot</figcaption></figure>
+</div>
+<h3>02_resumo_preprocessamento.csv</h3>
+<div class="tab"><table>
+<tr><th>item</th><th>valor</th></tr>
+<tr><td>voos rotulados</td><td>6426</td></tr>
+<tr><td>voos de treino</td><td>4819</td></tr>
+<tr><td>voos de teste interno</td><td>1607</td></tr>
+<tr><td>voos da submissão</td><td>1607</td></tr>
+<tr><td>colunas de input após model.matrix</td><td>42</td></tr>
+<tr><td>anômalos (IQR)</td><td>126</td></tr>
+<tr><td>anômalos (k-means)</td><td>21</td></tr>
+<tr><td>anômalos (GMM)</td><td>121</td></tr>
+<tr><td>anômalos (hierárquica)</td><td>161</td></tr>
+<tr><td>anômalos (consenso >= 2)</td><td>107</td></tr>
+</table></div>
+</section>
+<section id="s03"><h2>03 · Modelos e validação cruzada</h2>
+<div class="grade">
+<figure><img loading="lazy" src="03_01_arvore_validacao_cruzada.png" alt="arvore validacao cruzada"><figcaption><b>03_01</b> · arvore validacao cruzada</figcaption></figure>
+<figure><img loading="lazy" src="03_02_arvore_podada.png" alt="arvore podada"><figcaption><b>03_02</b> · arvore podada</figcaption></figure>
+<figure><img loading="lazy" src="03_03_knn_validacao_cruzada.png" alt="knn validacao cruzada"><figcaption><b>03_03</b> · knn validacao cruzada</figcaption></figure>
+<figure><img loading="lazy" src="03_04_svm_validacao_cruzada.png" alt="svm validacao cruzada"><figcaption><b>03_04</b> · svm validacao cruzada</figcaption></figure>
+<figure><img loading="lazy" src="03_04b_svm_refinamento.png" alt="03 04b svm refinamento"><figcaption><b>03_04b</b> · 03 04b svm refinamento</figcaption></figure>
+<figure><img loading="lazy" src="03_05_rede_validacao_cruzada.png" alt="rede validacao cruzada"><figcaption><b>03_05</b> · rede validacao cruzada</figcaption></figure>
+<figure><img loading="lazy" src="03_06_rede_neural.png" alt="rede neural"><figcaption><b>03_06</b> · rede neural</figcaption></figure>
+</div>
+<h3>03_coeficientes_regressao_linear.csv</h3>
+<div class="tab"><table>
+<tr><th>termo</th><th>coeficiente_s</th><th>erro_padrao_s</th><th>p_valor</th></tr>
+<tr><td>(Intercept)</td><td>661.9</td><td>37.3</td><td>2.93e-68</td></tr>
+<tr><td>nactive</td><td>48.5</td><td>0.7</td><td>0</td></tr>
+<tr><td>faixah06_09</td><td>-21.2</td><td>9</td><td>0.0186</td></tr>
+<tr><td>faixah10_13</td><td>-32.4</td><td>9.7</td><td>0.000833</td></tr>
+<tr><td>faixah14_17</td><td>-20.7</td><td>9.3</td><td>0.0256</td></tr>
+<tr><td>faixah18_21</td><td>13.9</td><td>9.5</td><td>0.147</td></tr>
+<tr><td>faixah22_23</td><td>-8.8</td><td>9.8</td><td>0.372</td></tr>
+<tr><td>dia_semanaseg</td><td>22.4</td><td>8.3</td><td>0.00735</td></tr>
+<tr><td>dia_semanater</td><td>14.7</td><td>8.3</td><td>0.0782</td></tr>
+<tr><td>dia_semanaqua</td><td>31.6</td><td>8.3</td><td>0.000142</td></tr>
+<tr><td>dia_semanaqui</td><td>-7.7</td><td>7.9</td><td>0.334</td></tr>
+<tr><td>dia_semanasex</td><td>29.7</td><td>8</td><td>0.000202</td></tr>
+<tr><td>dia_semanasab</td><td>4.9</td><td>8</td><td>0.545</td></tr>
+<tr><td>runway28R</td><td>254.3</td><td>7.4</td><td>3.21e-233</td></tr>
+<tr><td>wtcM</td><td>-117.7</td><td>39.5</td><td>0.00293</td></tr>
+<tr><td>acftA21N</td><td>8</td><td>15.8</td><td>0.613</td></tr>
+<tr><td>acftA319</td><td>-38.8</td><td>17.7</td><td>0.0286</td></tr>
+<tr><td>acftA320</td><td>-30.1</td><td>14.2</td><td>0.0349</td></tr>
+<tr><td>acftA321</td><td>-30.1</td><td>14.4</td><td>0.0364</td></tr>
+<tr><td>acftA359</td><td>39.6</td><td>108.5</td><td>0.715</td></tr>
+<tr><td>acftA35K</td><td>165.2</td><td>51.3</td><td>0.00129</td></tr>
+<tr><td>acftB38M</td><td>-43.4</td><td>32.4</td><td>0.181</td></tr>
+<tr><td>acftB39M</td><td>88.7</td><td>39.8</td><td>0.0261</td></tr>
+<tr><td>acftB738</td><td>-66.2</td><td>32.5</td><td>0.0419</td></tr>
+<tr><td>acftB772</td><td>-146.1</td><td>33.9</td><td>1.7e-05</td></tr>
+<tr><td>acftB77W</td><td>-37.9</td><td>34.7</td><td>0.274</td></tr>
+<tr><td>acftB789</td><td>-3.1</td><td>31.6</td><td>0.922</td></tr>
+<tr><td>acftE195</td><td>0.5</td><td>23.3</td><td>0.983</td></tr>
+<tr><td>acftE295</td><td>-26.8</td><td>19.4</td><td>0.168</td></tr>
+<tr><td>acftoutros_M</td><td>-87.3</td><td>58.4</td><td>0.135</td></tr>
+<tr><td>airlineARG</td><td>-29.9</td><td>23.3</td><td>0.201</td></tr>
+<tr><td>airlineAZU</td><td>-68.9</td><td>33.4</td><td>0.0391</td></tr>
+<tr><td>airlineLAN</td><td>18.8</td><td>33.1</td><td>0.57</td></tr>
+<tr><td>airlineQTR</td><td>-107.6</td><td>55.4</td><td>0.0522</td></tr>
+<tr><td>airlineTAM</td><td>-28.9</td><td>29.2</td><td>0.323</td></tr>
+<tr><td>airlineTHY</td><td>-35.3</td><td>111.7</td><td>0.752</td></tr>
+<tr><td>airlineUAL</td><td>-1.6</td><td>28.1</td><td>0.954</td></tr>
+<tr><td>regiaoam_sul</td><td>47.7</td><td>9.3</td><td>2.88e-07</td></tr>
+<tr><td>regiaoam_norte</td><td>88</td><td>23.6</td><td>0.000192</td></tr>
+<tr><td>regiaoeuropa</td><td>115.4</td><td>25.4</td><td>5.59e-06</td></tr>
+<tr><td>regiaooutros</td><td>117</td><td>49.4</td><td>0.018</td></tr>
+<tr><td>vento_ns</td><td>-1</td><td>0.5</td><td>0.062</td></tr>
+<tr><td>vento_lo</td><td>0.8</td><td>0.6</td><td>0.222</td></tr>
+<tr><td>wx</td><td>148</td><td>14.2</td><td>4.95e-25</td></tr>
+</table></div>
+<h3>03_hiperparametros.txt</h3><pre>
+regressao_linear = linear
+arvore_folhas = 60
+knn_k = 5
+knn_k_pela_mediana = 3
+svm_kernel = radial
+svm_cost = 3
+svm_gamma = 0.0952380952380952
+svm_epsilon = 0.4
+rede_hidden = 3
+rede_hidden_pela_mediana = 3
+</pre>
+<h3>03_tempos_execucao_s.txt</h3><pre>
+arvore = 113.7
+knn = 8.2
+svm = 1606
+rede_neural = 345.9
+</pre>
+<h3>03_termos_redundantes_regressao_linear.txt</h3><pre>
+acftoutros_H
+airlineCMP
+airlineGLO
+</pre>
+</section>
+<section id="s04"><h2>04 · Avaliação e escolha do modelo</h2>
+<div class="grade">
+<figure><img loading="lazy" src="04_01_metricas_por_modelo.png" alt="metricas por modelo"><figcaption><b>04_01</b> · metricas por modelo</figcaption></figure>
+<figure><img loading="lazy" src="04_02_histogramas_de_erros.png" alt="histogramas de erros"><figcaption><b>04_02</b> · histogramas de erros</figcaption></figure>
+<figure><img loading="lazy" src="04_03_boxplot_erros.png" alt="boxplot erros"><figcaption><b>04_03</b> · boxplot erros</figcaption></figure>
+<figure><img loading="lazy" src="04_04_real_x_previsto.png" alt="real x previsto"><figcaption><b>04_04</b> · real x previsto</figcaption></figure>
+<figure><img loading="lazy" src="04_05_erro_por_situacao.png" alt="erro por situacao"><figcaption><b>04_05</b> · erro por situacao</figcaption></figure>
+<figure><img loading="lazy" src="04_06_bootstrap_rmse.png" alt="bootstrap rmse"><figcaption><b>04_06</b> · bootstrap rmse</figcaption></figure>
+<figure><img loading="lazy" src="04_07_efeitos_regressao_linear.png" alt="efeitos regressao linear"><figcaption><b>04_07</b> · efeitos regressao linear</figcaption></figure>
+</div>
+<h3>04_bootstrap_comparacao_pareada.csv</h3>
+<div class="tab"><table>
+<tr><th>modelo</th><th>dif_rmse</th><th>ic_inferior</th><th>ic_superior</th><th>empata_com_o_primeiro</th></tr>
+<tr><td>M2_arvore</td><td>7</td><td>2.4</td><td>12</td><td>FALSE</td></tr>
+<tr><td>M5_rede</td><td>12.4</td><td>8.1</td><td>16.5</td><td>FALSE</td></tr>
+<tr><td>M1_linear</td><td>16.5</td><td>12.2</td><td>20.9</td><td>FALSE</td></tr>
+<tr><td>M3_knn</td><td>40.8</td><td>32.1</td><td>50.2</td><td>FALSE</td></tr>
+</table></div>
+<h3>04_bootstrap_ic_rmse.csv</h3>
+<div class="tab"><table>
+<tr><th>modelo</th><th>rotulo</th><th>RMSE</th><th>ic95_inferior</th><th>ic95_superior</th></tr>
+<tr><td>M4_svm</td><td>M4 SVM (extensão)</td><td>130.3</td><td>125.2</td><td>135.5</td></tr>
+<tr><td>M2_arvore</td><td>M2 árvore</td><td>137.3</td><td>131.4</td><td>143.4</td></tr>
+<tr><td>M5_rede</td><td>M5 rede neural</td><td>142.7</td><td>135.8</td><td>149.5</td></tr>
+<tr><td>M1_linear</td><td>M1 regressão linear</td><td>146.8</td><td>140.4</td><td>153.4</td></tr>
+<tr><td>M1_log</td><td>M1 regressão linear (log)</td><td>150</td><td>142.8</td><td>157.7</td></tr>
+<tr><td>M3_knn</td><td>M3 kNN</td><td>171.1</td><td>160.9</td><td>182.2</td></tr>
+<tr><td>M0_cabeceira</td><td>M0 baseline (cabeceira)</td><td>251.3</td><td>239.1</td><td>263.6</td></tr>
+<tr><td>M0_media</td><td>M0 baseline (média)</td><td>277</td><td>263.8</td><td>290.8</td></tr>
+</table></div>
+<h3>04_experimentos_preprocessamento.csv</h3>
+<div class="tab"><table>
+<tr><th>variante</th><th>rmse_cv</th><th>reducao_rmse</th><th>ic_inferior</th><th>ic_superior</th><th>adotar</th></tr>
+<tr><td>base</td><td>132.3</td><td>NA</td><td>NA</td><td>NA</td><td>FALSE</td></tr>
+<tr><td>sem_anomalos</td><td>140.37</td><td>-8.07</td><td>-10.41</td><td>-5.87</td><td>FALSE</td></tr>
+<tr><td>com_npush</td><td>131.14</td><td>1.16</td><td>0.18</td><td>2.22</td><td>TRUE</td></tr>
+</table></div>
+<h3>04_metricas_teste.csv</h3>
+<div class="tab"><table>
+<tr><th>modelo</th><th>rotulo</th><th>RMSE</th><th>MAE</th><th>MAPE</th><th>vies</th></tr>
+<tr><td>M4_svm</td><td>M4 SVM (extensão)</td><td>130.3</td><td>102.3</td><td>12.27</td><td>2.7</td></tr>
+<tr><td>M2_arvore</td><td>M2 árvore</td><td>137.3</td><td>106.5</td><td>12.52</td><td>-1.1</td></tr>
+<tr><td>M5_rede</td><td>M5 rede neural</td><td>142.7</td><td>108.7</td><td>12.77</td><td>1</td></tr>
+<tr><td>M1_linear</td><td>M1 regressão linear</td><td>146.8</td><td>114</td><td>13.41</td><td>1.3</td></tr>
+<tr><td>M1_log</td><td>M1 regressão linear (log)</td><td>150</td><td>113.2</td><td>13.01</td><td>-9.8</td></tr>
+<tr><td>M3_knn</td><td>M3 kNN</td><td>171.1</td><td>125.5</td><td>14.34</td><td>-21.6</td></tr>
+<tr><td>M0_cabeceira</td><td>M0 baseline (cabeceira)</td><td>251.3</td><td>185.2</td><td>20.52</td><td>-53.7</td></tr>
+<tr><td>M0_media</td><td>M0 baseline (média)</td><td>277</td><td>208.8</td><td>25.05</td><td>-3.9</td></tr>
+</table></div>
+<h3>04_escolha_modelo_final.txt</h3><pre>
+modelo_final = M4_svm
+rotulo = M4 SVM (extensão)
+rmse_teste = 130.3
+mae_teste = 102.3
+mape_teste = 12.27
+empatados_no_bootstrap = M4_svm
+usar_sem_anomalos = FALSE
+usar_npush = TRUE
+tempo_experimentos_s = 12
+</pre>
+</section>
+<section id="s05"><h2>05 · Submissão</h2>
+<div class="grade">
+<figure><img loading="lazy" src="05_01_previsoes_submissao.png" alt="previsoes submissao"><figcaption><b>05_01</b> · previsoes submissao</figcaption></figure>
+</div>
+<h3>05_resumo_previsoes_submissao.csv</h3>
+<div class="tab"><table>
+<tr><th></th><th>Min.</th><th>1st Qu.</th><th>Median</th><th>Mean</th><th>3rd Qu.</th><th>Max.</th></tr>
+<tr><td>treino_real</td><td>434</td><td>678.5</td><td>826.7</td><td>871.4</td><td>1003.3</td><td>2167.9</td></tr>
+<tr><td>submissao_prevista</td><td>508</td><td>684.8</td><td>831.1</td><td>870.7</td><td>979.3</td><td>2102.8</td></tr>
+</table></div>
+<h3>05_conferencias_submissao.txt</h3><pre>
+arquivo = data_project_test_HenriAntonioGilberto.Rda
+modelo_final = M4_svm
+voos_no_treinamento_final = 6426
+objeto_chama_data_test = TRUE
+linhas_1607 = TRUE
+mesmas_colunas = TRUE
+mesma_ordem_de_id = TRUE
+nenhum_NA = TRUE
+todos_positivos = TRUE
+faixa_plausivel = TRUE
+outras_colunas_intactas = TRUE
+</pre>
+</section>
+<section id="s06"><h2>06 · Sensibilidade do SVM</h2>
+<div class="grade">
+<figure><img loading="lazy" src="06_01_svm_sensibilidade.png" alt="svm sensibilidade"><figcaption><b>06_01</b> · svm sensibilidade</figcaption></figure>
+</div>
+<h3>06_svm_grade_validacao_cruzada.csv</h3>
+<div class="tab"><table>
+<tr><th>cost</th><th>gamma_x_padrao</th><th>epsilon</th><th>faixa_s</th><th>rmse</th><th>dispersion</th></tr>
+<tr><td>3</td><td>4</td><td>0.4</td><td>107.7</td><td>131.455798429129</td><td>1454.48972052216</td></tr>
+<tr><td>10</td><td>2</td><td>0.4</td><td>107.7</td><td>131.594944711539</td><td>1588.48094244467</td></tr>
+<tr><td>3</td><td>2</td><td>0.4</td><td>107.7</td><td>131.83433142647</td><td>1516.62638954857</td></tr>
+<tr><td>3</td><td>2</td><td>0.2</td><td>53.9</td><td>131.995979930315</td><td>1415.5895865345</td></tr>
+<tr><td>10</td><td>2</td><td>0.6</td><td>161.6</td><td>132.117387369092</td><td>1679.59580912111</td></tr>
+<tr><td>3</td><td>4</td><td>0.2</td><td>53.9</td><td>132.202178397819</td><td>1312.93737998331</td></tr>
+<tr><td>1</td><td>4</td><td>0.4</td><td>107.7</td><td>132.336052191999</td><td>1497.97102792393</td></tr>
+<tr><td>3</td><td>4</td><td>0.6</td><td>161.6</td><td>132.417674060153</td><td>1598.88490968398</td></tr>
+<tr><td>1</td><td>4</td><td>0.2</td><td>53.9</td><td>132.437512797925</td><td>1363.88843471381</td></tr>
+<tr><td>10</td><td>2</td><td>0.2</td><td>53.9</td><td>132.614672302006</td><td>1337.95091606997</td></tr>
+<tr><td>3</td><td>2</td><td>0.1</td><td>26.9</td><td>132.615410429514</td><td>1387.78329674644</td></tr>
+<tr><td>10</td><td>4</td><td>0.4</td><td>107.7</td><td>132.627057221914</td><td>1454.72716788445</td></tr>
+<tr><td>3</td><td>2</td><td>0.6</td><td>161.6</td><td>132.628462977926</td><td>1612.99068944517</td></tr>
+<tr><td>3</td><td>8</td><td>0.4</td><td>107.7</td><td>132.655282750608</td><td>1500.3368156277</td></tr>
+<tr><td>1</td><td>4</td><td>0.1</td><td>26.9</td><td>132.782777444599</td><td>1346.72677866452</td></tr>
+<tr><td>3</td><td>4</td><td>0.1</td><td>26.9</td><td>132.816326840307</td><td>1345.60069081307</td></tr>
+<tr><td>3</td><td>2</td><td>0.05</td><td>13.5</td><td>132.848482578412</td><td>1350.27135070803</td></tr>
+<tr><td>10</td><td>4</td><td>0.6</td><td>161.6</td><td>132.897050628332</td><td>1455.04885987003</td></tr>
+<tr><td>1</td><td>8</td><td>0.4</td><td>107.7</td><td>133.019163030954</td><td>1472.77038205247</td></tr>
+<tr><td>1</td><td>4</td><td>0.05</td><td>13.5</td><td>133.061719464562</td><td>1329.49622090056</td></tr>
+<tr><td>10</td><td>2</td><td>0.1</td><td>26.9</td><td>133.137788068096</td><td>1373.49780495693</td></tr>
+<tr><td>3</td><td>4</td><td>0.05</td><td>13.5</td><td>133.238122848887</td><td>1304.98010361082</td></tr>
+<tr><td>10</td><td>2</td><td>0.05</td><td>13.5</td><td>133.481608219706</td><td>1270.34106311289</td></tr>
+<tr><td>1</td><td>8</td><td>0.2</td><td>53.9</td><td>133.526274166935</td><td>1315.71403326115</td></tr>
+<tr><td>1</td><td>2</td><td>0.4</td><td>107.7</td><td>133.693567863258</td><td>1497.9247992337</td></tr>
+<tr><td>1</td><td>4</td><td>0.6</td><td>161.6</td><td>133.770203656681</td><td>1521.71185210044</td></tr>
+<tr><td>3</td><td>8</td><td>0.6</td><td>161.6</td><td>133.862539086011</td><td>1497.61336914518</td></tr>
+<tr><td>1</td><td>2</td><td>0.2</td><td>53.9</td><td>133.89712756989</td><td>1464.8122448514</td></tr>
+<tr><td>1</td><td>8</td><td>0.1</td><td>26.9</td><td>133.992647242809</td><td>1325.61498823961</td></tr>
+<tr><td>1</td><td>2</td><td>0.05</td><td>13.5</td><td>134.260181692865</td><td>1433.52990867112</td></tr>
+<tr><td>1</td><td>2</td><td>0.1</td><td>26.9</td><td>134.330788654968</td><td>1460.44223267658</td></tr>
+<tr><td>10</td><td>8</td><td>0.6</td><td>161.6</td><td>134.342364630511</td><td>1393.33229094258</td></tr>
+<tr><td>1</td><td>8</td><td>0.05</td><td>13.5</td><td>134.368717405752</td><td>1310.9431335389</td></tr>
+<tr><td>3</td><td>8</td><td>0.2</td><td>53.9</td><td>134.434234124195</td><td>1347.05332468926</td></tr>
+<tr><td>10</td><td>4</td><td>0.2</td><td>53.9</td><td>134.498430810339</td><td>1262.06571693277</td></tr>
+<tr><td>10</td><td>8</td><td>0.4</td><td>107.7</td><td>134.920508245119</td><td>1488.66968911904</td></tr>
+<tr><td>1</td><td>2</td><td>0.6</td><td>161.6</td><td>135.130160188329</td><td>1529.5080453175</td></tr>
+<tr><td>1</td><td>8</td><td>0.6</td><td>161.6</td><td>135.300940863181</td><td>1644.52391500255</td></tr>
+<tr><td>10</td><td>4</td><td>0.1</td><td>26.9</td><td>135.840111818666</td><td>1320.77693056666</td></tr>
+<tr><td>3</td><td>8</td><td>0.1</td><td>26.9</td><td>136.004570054746</td><td>1352.87448109013</td></tr>
+<tr><td>0.3</td><td>4</td><td>0.2</td><td>53.9</td><td>136.325613942803</td><td>1447.35000465826</td></tr>
+<tr><td>0.3</td><td>4</td><td>0.1</td><td>26.9</td><td>136.375717623569</td><td>1437.41079137004</td></tr>
+<tr><td>0.3</td><td>4</td><td>0.4</td><td>107.7</td><td>136.588979267037</td><td>1493.49790677612</td></tr>
+<tr><td>0.3</td><td>4</td><td>0.05</td><td>13.5</td><td>136.613902209787</td><td>1438.76925112891</td></tr>
+<tr><td>10</td><td>2</td><td>0.8</td><td>215.4</td><td>136.680057292231</td><td>1600.78966140031</td></tr>
+<tr><td>10</td><td>4</td><td>0.05</td><td>13.5</td><td>136.843566021613</td><td>1470.35062642435</td></tr>
+<tr><td>3</td><td>8</td><td>0.05</td><td>13.5</td><td>137.008345442053</td><td>1432.20226205353</td></tr>
+<tr><td>10</td><td>4</td><td>0.8</td><td>215.4</td><td>137.085449238373</td><td>1518.52998554282</td></tr>
+<tr><td>3</td><td>4</td><td>0.8</td><td>215.4</td><td>137.430176305687</td><td>1606.46280090016</td></tr>
+<tr><td>0.3</td><td>2</td><td>0.1</td><td>26.9</td><td>137.488426557409</td><td>1486.87110693066</td></tr>
+<tr><td>0.3</td><td>2</td><td>0.05</td><td>13.5</td><td>137.490535232212</td><td>1474.62211489377</td></tr>
+<tr><td>0.3</td><td>2</td><td>0.2</td><td>53.9</td><td>137.51381206082</td><td>1486.16500249378</td></tr>
+<tr><td>3</td><td>2</td><td>0.8</td><td>215.4</td><td>137.571335615879</td><td>1606.26527604145</td></tr>
+<tr><td>0.3</td><td>2</td><td>0.4</td><td>107.7</td><td>137.76383873512</td><td>1435.24594763867</td></tr>
+<tr><td>0.3</td><td>8</td><td>0.2</td><td>53.9</td><td>138.186821355117</td><td>1521.1763452552</td></tr>
+<tr><td>0.3</td><td>4</td><td>0.6</td><td>161.6</td><td>138.556930473663</td><td>1578.42205319119</td></tr>
+<tr><td>0.3</td><td>8</td><td>0.4</td><td>107.7</td><td>138.649186269725</td><td>1576.37269878901</td></tr>
+<tr><td>0.3</td><td>8</td><td>0.1</td><td>26.9</td><td>138.764583317998</td><td>1501.59133091406</td></tr>
+<tr><td>1</td><td>4</td><td>0.8</td><td>215.4</td><td>138.832006070647</td><td>1560.72548783149</td></tr>
+<tr><td>0.3</td><td>8</td><td>0.05</td><td>13.5</td><td>138.879267765144</td><td>1509.87299845923</td></tr>
+<tr><td>10</td><td>8</td><td>0.2</td><td>53.9</td><td>138.91866408764</td><td>1444.91456218903</td></tr>
+<tr><td>1</td><td>2</td><td>0.8</td><td>215.4</td><td>139.340878203947</td><td>1592.84950185793</td></tr>
+<tr><td>0.3</td><td>2</td><td>0.6</td><td>161.6</td><td>139.455964559312</td><td>1537.93362188479</td></tr>
+<tr><td>10</td><td>8</td><td>0.8</td><td>215.4</td><td>139.607344932861</td><td>1772.1216763529</td></tr>
+<tr><td>3</td><td>8</td><td>0.8</td><td>215.4</td><td>139.63668544049</td><td>1690.67549412896</td></tr>
+<tr><td>1</td><td>8</td><td>0.8</td><td>215.4</td><td>140.934988687073</td><td>1732.62873982159</td></tr>
+<tr><td>0.3</td><td>8</td><td>0.6</td><td>161.6</td><td>141.321018742481</td><td>1630.38276602963</td></tr>
+<tr><td>10</td><td>8</td><td>0.1</td><td>26.9</td><td>142.071241066691</td><td>1498.46186826711</td></tr>
+<tr><td>0.3</td><td>4</td><td>0.8</td><td>215.4</td><td>143.607538920955</td><td>1647.70648986474</td></tr>
+<tr><td>0.3</td><td>2</td><td>0.8</td><td>215.4</td><td>143.845753970349</td><td>1545.02284136437</td></tr>
+<tr><td>10</td><td>8</td><td>0.05</td><td>13.5</td><td>144.04233536126</td><td>1560.28309540546</td></tr>
+<tr><td>0.3</td><td>8</td><td>0.8</td><td>215.4</td><td>147.550404476943</td><td>1711.66422021804</td></tr>
+</table></div>
+<h3>06_svm_sensibilidade_resumo.txt</h3><pre>
+cost_script03 = 1
+gamma_script03 = 0.0952380952380952
+epsilon_script03 = 0.1
+cost_melhor = 3
+gamma_melhor = 0.0952
+gamma_melhor_x_padrao = 4
+epsilon_melhor = 0.4
+faixa_melhor_s = 107.7
+rmse_cv_script03 = 132.78
+rmse_cv_melhor = 131.46
+rmse_teste_script03 = 132.9
+rmse_teste_melhor = 130.3
+mae_teste_script03 = 102.8
+mae_teste_melhor = 102.3
+reducao_rmse_teste = 2.58
+ic95_inferior = 0.47
+ic95_superior = 4.74
+otimo_na_borda = 
+tempo_min = 14.8
+</pre>
+</section>
+<section id="logs"><h2>Logs do console</h2>
+<h3><a href="../resultados/logs/TRA48_B2_01_exploracao.txt" target="_blank">TRA48_B2_01_exploracao.txt</a> · 158 linhas</h3>
+<h3><a href="../resultados/logs/TRA48_B2_02_preprocessamento.txt" target="_blank">TRA48_B2_02_preprocessamento.txt</a> · 92 linhas</h3>
+<h3><a href="../resultados/logs/TRA48_B2_03_modelos.txt" target="_blank">TRA48_B2_03_modelos.txt</a> · 345 linhas</h3>
+<h3><a href="../resultados/logs/TRA48_B2_04_avaliacao.txt" target="_blank">TRA48_B2_04_avaliacao.txt</a> · 72 linhas</h3>
+<h3><a href="../resultados/logs/TRA48_B2_05_submissao.txt" target="_blank">TRA48_B2_05_submissao.txt</a> · 33 linhas</h3>
+<h3><a href="../resultados/logs/TRA48_B2_06_sensibilidade_svm.txt" target="_blank">TRA48_B2_06_sensibilidade_svm.txt</a> · 125 linhas</h3>
+</section>
+<div id="zoom"><img alt=""></div>
+<script>
+  var z = document.getElementById('zoom'), zi = z.querySelector('img');
+  document.querySelectorAll('figure img').forEach(function (im) {
+    im.addEventListener('click', function () { zi.src = im.src; z.classList.add('aberto'); });
+  });
+  z.addEventListener('click', function () { z.classList.remove('aberto'); zi.src = ''; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') z.click(); });
+</script>
+</body></html>

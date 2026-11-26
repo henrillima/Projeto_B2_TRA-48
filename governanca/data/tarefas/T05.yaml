@@ -1,0 +1,18 @@
+id: tarefa:T05
+kind: tarefa
+titulo: "Definir o grupo e dividir as frentes do Projeto B2"
+status: feita
+prazo: 2026-10-08
+prioridade: alta
+estimativa_h: 1
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M5"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Resolver na aula de 08/10. Enquanto não resolver, pendencia:P01 bloqueia esta tarefa e todas as atribuições ficam em henri."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Grupo: Henri Leonardo, Antonio Garcia e Gilberto Patri."

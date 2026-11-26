@@ -1,0 +1,19 @@
+id: tarefa:T31
+kind: tarefa
+titulo: "Treinar a árvore de regressão e o kNN (M2 e M3)"
+status: revisao
+prazo: 2026-11-10
+prioridade: alta
+estimativa_h: 5
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M3"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T30"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "ranger via tidymodels. Robusto a escala e a interação, e a importância de variáveis alimenta a interpretação pedida no item 5."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Reescopada pela decisao:D05 em 14/11. Titulo anterior: Treinar o primeiro modelo: floresta aleatória."

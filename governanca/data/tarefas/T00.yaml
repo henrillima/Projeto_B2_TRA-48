@@ -1,0 +1,15 @@
+id: tarefa:T00
+kind: tarefa
+titulo: "Abrir o repositório e portar a infraestrutura de governança do B1"
+status: fazendo
+prazo: 2026-10-07
+prioridade: alta
+estimativa_h: 3
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M5"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Copiados schema, validar.py, build.py, site.py, gov.py, vendor/, Makefile, uv.lock e os dois workflows. Strings de título trocadas de B1 para B2. Grafo recomeçado vazio."

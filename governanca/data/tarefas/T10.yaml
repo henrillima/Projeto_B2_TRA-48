@@ -1,0 +1,18 @@
+id: tarefa:T10
+kind: tarefa
+titulo: "Acompanhar os Labs 1 a 6 e extrair o que serve ao projeto"
+status: pronta
+prazo: 2026-11-11
+prioridade: alta
+estimativa_h: 18
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M1"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Lab1 em 08/10 exige RStudio instalado e o arquivo TRA48_Lab1_data.Rda. Cada Lab fecha com uma nota dizendo o que dele entra no pipeline do B2."
+  - data: 2026-10-13
+    autor: henri
+    texto: "Lab1 (08/10) cobriu summary(), apply() para media e variancia, barplot, hist, boxplot, boxplot(y ~ fator), scatterplot colorido por fator e corrplot da matriz de correlacao. E exatamente o repertorio que o item 3 do relatorio do B2 exige, entao o Lab01.R serve de base direta para a tarefa T21. Script arquivado em ITA/08-semestre/TRA-48/aulas/2-bimestre/labs/lab1/."

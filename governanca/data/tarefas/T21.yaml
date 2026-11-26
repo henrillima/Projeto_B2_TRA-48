@@ -1,0 +1,20 @@
+id: tarefa:T21
+kind: tarefa
+titulo: "Produzir as visualizações exigidas pelo relatório"
+status: revisao
+prazo: 2026-11-06
+prioridade: alta
+estimativa_h: 5
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M2"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T14"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T20"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Boxplot, scatterplot e correlograma são citados nominalmente no item 3 do enunciado. Paleta e tema reaproveitados do B1, já verificados para daltonismo."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Codigo pronto em Script 01, Etapa 2. Falta rodar no Mac e revisar o resultado."

@@ -1,0 +1,26 @@
+id: decisao:D04
+kind: decisao
+titulo: "Manter a camada de governança no B2 mesmo sem nota explícita de processo"
+status: provisoria
+criado_em: 2026-10-06
+descricao: |
+  O planejamento do 2º bimestre atribui ao B2 nota de apresentação (30% do bimestre) e de
+  relatório (100% do exame), e não menciona avaliação de processo — ao contrário do
+  enunciado do Projeto B1, que pesava 25% em camada metodológica. Ainda assim o grafo, o
+  validador e o site continuam.
+  
+  A razão não é nota: num Data Challenge, o número submetido em 18/11 precisa ser
+  reproduzível em 02/12, quando o relatório for escrito, e precisa ser defensável na
+  apresentação em 25/11. Sem registro datado de qual versão da feature gerou qual métrica,
+  a seção 5 do relatório vira reconstituição de memória.
+  
+  Marcada como **provisória**: se o professor Guterres esclarecer que há avaliação de
+  processo no B2, ou que não há, esta decisão é substituída por uma vigente.
+alternativas_descartadas:
+  - opcao: "Abandonar a governança no B2 e focar só no modelo"
+    por_que_nao: "Economiza algumas horas por semana e perde a rastreabilidade entre experimento e métrica justamente no projeto em que a métrica é a entrega."
+  - opcao: "Versão reduzida: só um CHANGELOG.md"
+    por_que_nao: "Registra o quê e quando, mas não o porquê nem o vínculo entre experimento, feature e resultado — que é o que a seção 5 do relatório precisa."
+arestas:
+  - {rel: DECIDE_SOBRE, dst: "meta:M5"}
+  - {rel: ASSINADA_POR, dst: "pessoa:henri"}

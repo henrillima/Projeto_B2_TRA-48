@@ -1,0 +1,10 @@
+regressao_linear = linear
+arvore_folhas = 60
+knn_k = 5
+knn_k_pela_mediana = 3
+svm_kernel = radial
+svm_cost = 3
+svm_gamma = 0.0952380952380952
+svm_epsilon = 0.4
+rede_hidden = 3
+rede_hidden_pela_mediana = 3

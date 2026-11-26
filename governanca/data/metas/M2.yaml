@@ -1,0 +1,10 @@
+id: meta:M2
+kind: meta
+titulo: "Produzir uma análise exploratória que condicione as decisões de modelagem"
+status: aberta
+criado_em: 2026-10-06
+descricao: |
+  O item 3 do relatório pede EDA com visualizações gráficas (boxplot, scatterplot,
+  correlograma) e estatísticas descritivas. A meta não é ter os gráficos: é que cada
+  escolha de modelagem feita depois aponte para um achado da EDA. Gráfico que não
+  sustenta decisão nenhuma é enfeite.

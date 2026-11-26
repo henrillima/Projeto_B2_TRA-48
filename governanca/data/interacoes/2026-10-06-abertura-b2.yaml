@@ -1,0 +1,36 @@
+id: ia:2026-10-06-abertura-b2
+kind: ia
+titulo: "Abertura do Projeto B2: estrutura do repositório e grafo inicial"
+criado_em: 2026-10-06
+aceito: parcial
+descricao: |
+  Sessão de reorganização da pasta da disciplina e abertura do repositório do Projeto B2.
+  O assistente leu o planejamento do 2º bimestre, reconciliou o calendário do PDF
+  (quartas-feiras) com o e-mail que move as aulas para quinta, reorganizou
+  ~/ITA/08-semestre/TRA-48 em uma pasta por bimestre, portou a infraestrutura de governança
+  do B1 e redigiu as cinco metas, quatro decisões, quatro pendências e vinte e cinco tarefas
+  deste grafo.
+critica_humana: |
+  Aceite parcial, e o que foi descartado importa mais que o que foi aceito.
+  
+  O que é estimativa e não medição: TODAS as estimativas em horas das tarefas T10 a T43 foram
+  escritas pelo assistente sem base em medição nenhuma deste projeto. São números plausíveis,
+  não previsões. A primeira semana de uso vai mostrar o viés, e aí elas devem ser corrigidas
+  por tarefa, com nota.
+  
+  O que é hipótese disfarçada de plano: as features de T14 foram listadas antes de qualquer
+  contato com a base — pendencia:P02 registra que o esquema é desconhecido até 28/10. Se a
+  base vier agregada por janela de tempo, metade dessas features não existe. A lista é
+  hipótese a testar, e o texto da tarefa foi reescrito para dizer isso.
+  
+  O que foi corrigido na origem: o assistente propôs inicialmente tratar a camada de
+  governança como requisito avaliado, por analogia com o B1. Não é: o planejamento do 2º
+  bimestre não menciona nota de processo. Por isso decisao:D04 entrou como PROVISÓRIA, com a
+  justificativa real (reprodutibilidade da submissão), e não como vigente com justificativa
+  emprestada do outro enunciado.
+  
+  O que segue sem resposta: pendencia:P04. Enquanto não se souber se o Projeto B1 vale nota,
+  não se sabe quanto esforço o B2 pode consumir — e isso afeta toda a alocação acima.
+arestas:
+  - {rel: DECIDE_SOBRE, dst: "meta:M5"}
+  - {rel: ASSINADA_POR, dst: "pessoa:henri"}

@@ -1,0 +1,15 @@
+id: pendencia:P04
+kind: pendencia
+titulo: "Não está confirmado se o Projeto B1 de vertiportos segue valendo alguma nota"
+status: fechada
+criado_em: 2026-10-06
+descricao: |
+  O planejamento do 2º bimestre atribui 100% do 1º bimestre à Prova B1 e define o exame
+  como o relatório do Projeto B2. O Projeto B1 não aparece em nenhuma linha da avaliação.
+  O repositório Projeto_B1_TRA-48 tem infraestrutura completa e o modelo validado, e está
+  congelado até o professor Guterres esclarecer. Afeta este projeto porque define quanto
+  esforço sobra para o B2 — e porque decisao:D04 depende da mesma resposta.
+notas:
+  - data: 2026-11-11
+    autor: henri
+    texto: "Respondida: Projeto B1 sem prazo e sem cobranca (registrado no CLAUDE.md da pasta TRA-48 em 05/11). Nao disputa esforco com o B2. A decisao D04, que dependia da mesma resposta, segue provisoria: o enunciado do B2 tambem nao avalia processo."

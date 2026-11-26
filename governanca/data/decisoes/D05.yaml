@@ -1,0 +1,27 @@
+id: decisao:D05
+kind: decisao
+titulo: "Escrever a análise em R no padrão exato dos Labs, só com pacotes e métodos de aula"
+status: vigente
+criado_em: 2026-11-14
+descricao: |
+  Cinco scripts (R/TRA48_B2_01 a 05), cada um com a estrutura dos roteiros da professora:
+  INTRODUÇÃO, ETAPAs, setwd + load, set.seed(1), sem funções próprias, nomes de objeto dos Labs.
+  Pacotes: base, tree, caret, e1071, neuralnet, cluster, mclust, corrplot, pheatmap.
+  Métodos: baseline, regressão linear (com e sem log), árvore, kNN (knnreg, contraparte de
+  regressão da knn3), SVM de regressão como extensão declarada, rede neural com linear.output=TRUE.
+  Validação: partição 75/25 da Etapa 1 do Lab6; hiperparâmetros por validação cruzada dentro do
+  treino; agregação dos folds pela média do MSE (a mediana, usada no código do kNN do Lab4, é
+  calculada e reportada, mas não decide: o RMSE do desafio é uma média de erros quadráticos).
+alternativas_descartadas:
+  - opcao: "Manter targets + tidymodels com floresta aleatória e boosting"
+    por_que_nao: "Métodos e ferramentas que não foram dados em aula; pela regra do project, método diferente do da professora é erro, mesmo que tecnicamente correto."
+  - opcao: "Padrão dos Labs com floresta aleatória como método extra"
+    por_que_nao: "Mesmo problema, só que menor; a arguição vai cobrar o que foi visto em aula."
+  - opcao: "Só os dois métodos mínimos do enunciado"
+    por_que_nao: "O grupo pediu todos os métodos possíveis; cinco métodos dão comparação mais sólida e cobrem a matéria do bimestre."
+arestas:
+  - {rel: SUPERSEDE, dst: "decisao:D02"}
+  - {rel: SUPERSEDE, dst: "decisao:D03"}
+  - {rel: DECIDE_SOBRE, dst: "meta:M3"}
+  - {rel: DECIDE_SOBRE, dst: "meta:M5"}
+  - {rel: ASSINADA_POR, dst: "pessoa:henri"}

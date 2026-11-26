@@ -1,0 +1,19 @@
+id: tarefa:T35
+kind: tarefa
+titulo: "Escolher o modelo final e justificar a escolha"
+status: revisao
+prazo: 2026-11-16
+prioridade: alta
+estimativa_h: 2
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M3"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T34"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Não necessariamente o de menor RMSE. Erro na cauda, estabilidade entre folds e interpretabilidade entram na justificativa."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Codigo pronto em Script 04, Etapa 6. Falta rodar no Mac e revisar o resultado."

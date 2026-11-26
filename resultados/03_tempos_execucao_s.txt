@@ -1,0 +1,4 @@
+arvore = 113.7
+knn = 8.2
+svm = 1606
+rede_neural = 345.9

@@ -1,0 +1,9 @@
+modelo_final = M4_svm
+rotulo = M4 SVM (extensão)
+rmse_teste = 130.3
+mae_teste = 102.3
+mape_teste = 12.27
+empatados_no_bootstrap = M4_svm
+usar_sem_anomalos = FALSE
+usar_npush = TRUE
+tempo_experimentos_s = 12

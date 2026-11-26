@@ -1,0 +1,11 @@
+"item","valor"
+"voos rotulados",6426
+"voos de treino",4819
+"voos de teste interno",1607
+"voos da submissão",1607
+"colunas de input após model.matrix",42
+"anômalos (IQR)",126
+"anômalos (k-means)",21
+"anômalos (GMM)",121
+"anômalos (hierárquica)",161
+"anômalos (consenso >= 2)",107

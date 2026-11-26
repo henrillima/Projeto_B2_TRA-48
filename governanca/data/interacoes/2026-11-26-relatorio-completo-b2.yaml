@@ -1,0 +1,26 @@
+id: ia:2026-11-26-relatorio-completo-b2
+kind: ia
+titulo: "Relatório completo do Projeto B2 e retirada do KS e da assimetria do Script 01"
+criado_em: 2026-11-26
+aceito: parcial
+descricao: |
+  O assistente expandiu o relatório (de 50 para 64 páginas): seção de decisões de projeto com o
+  fluxo de análise e a tabela de achados e decisões; exploração e pré-processamento aprofundados,
+  com 14 prints novos de código e console; conclusões reorganizadas; apêndice com a origem de cada
+  conceito (aula, slide, Lab). Retirou a literatura da introdução (Ravizza, Lee, Probyn) e o
+  Efron; manteve Drucker e Smola só para a formulação da SVM de regressão. No Script 01, trocou o
+  ks.test e o coeficiente de assimetria por comentários e por print(média, mediana), sem mudar a
+  numeração das linhas, e reconstruiu o log.
+critica_humana: |
+  O que não foi rodado no Mac: o Script 01 revisado rodou só num R 4.3.3 em nuvem. Os números
+  saíram idênticos aos do log de 14/11, mas o summary() dessa versão formata as colunas de texto
+  de outro jeito; por isso o log entregue é o de 14/11 sem o bloco do KS e com as duas linhas
+  novas (média e mediana) copiadas da execução em nuvem. Rodar o Script 01 no Mac e conferir o
+  log antes do commit.
+  O que é interpretação e não medição: os rótulos de "achado → decisão" da Tabela 2 e as
+  hipóteses físicas (distância até a 28R, terminal internacional) são leitura do grupo.
+  Onde outra escolha seria defensável: manter o Efron como apoio do intervalo por percentis; o
+  assistente preferiu citar só a Aula 1 (slides 20 e 22), que já cobre percentis e bootstrap.
+arestas:
+  - {rel: DECIDE_SOBRE, dst: "meta:M4"}
+  - {rel: ASSINADA_POR, dst: "pessoa:henri"}

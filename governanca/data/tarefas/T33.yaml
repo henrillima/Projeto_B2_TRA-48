@@ -1,0 +1,20 @@
+id: tarefa:T33
+kind: tarefa
+titulo: "Ajustar hiperparâmetros com validação cruzada"
+status: revisao
+prazo: 2026-11-14
+prioridade: media
+estimativa_h: 5
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M3"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T31"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T32"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Grade declarada no _targets.R como parâmetro, nunca como constante literal no meio do código — regra herdada do B1."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Codigo pronto em Script 03, Etapas 3 a 6. Falta rodar no Mac e revisar o resultado."

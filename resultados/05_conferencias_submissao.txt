@@ -1,0 +1,11 @@
+arquivo = data_project_test_HenriAntonioGilberto.Rda
+modelo_final = M4_svm
+voos_no_treinamento_final = 6426
+objeto_chama_data_test = TRUE
+linhas_1607 = TRUE
+mesmas_colunas = TRUE
+mesma_ordem_de_id = TRUE
+nenhum_NA = TRUE
+todos_positivos = TRUE
+faixa_plausivel = TRUE
+outras_colunas_intactas = TRUE

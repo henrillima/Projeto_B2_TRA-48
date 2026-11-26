@@ -1,0 +1,28 @@
+id: decisao:D02
+kind: decisao
+titulo: "Fazer a análise em R, com pipeline targets, acompanhando os Labs da disciplina"
+status: superada
+criado_em: 2026-10-06
+descricao: |
+  A modelagem roda em R, orquestrada por `targets`, com ambiente fixado por `renv`. Os
+  Labs 1 a 6 são em R e exigem RStudio instalado; o material de apoio e o código do
+  professor virão nessa linguagem, e o custo de traduzir cada Lab para outra pilha
+  recairia exatamente nas semanas de maior carga.
+  
+  Para os modelos, a interface é `tidymodels` sobre `ranger` e `xgboost`; redes neurais,
+  se entrarem, via `nnet` ou `torch` — a decisão do método fica para `decisao` posterior,
+  depois da EDA, porque escolher o modelo antes de ver o dado é escolher no escuro.
+alternativas_descartadas:
+  - opcao: "Python com scikit-learn"
+    por_que_nao: "Pilha mais confortável para ML, mas desalinhada dos Labs: todo exercício de aula teria de ser reescrito, e a comparação com o resultado do professor deixaria de ser direta."
+  - opcao: "Híbrido: preparação em R, modelos em Python"
+    por_que_nao: "Duas fronteiras de serialização e dois ambientes para fixar, por um ganho que `tidymodels` já cobre."
+  - opcao: "R sem targets, scripts numerados"
+    por_que_nao: "Funciona até a primeira vez em que se muda uma feature e não se sabe mais o que precisa rodar de novo. O B1 já mostrou o valor do grafo de dependências."
+arestas:
+  - {rel: DECIDE_SOBRE, dst: "meta:M5"}
+  - {rel: ASSINADA_POR, dst: "pessoa:henri"}
+notas:
+  - data: 2026-11-14
+    autor: henri
+    texto: "Superada pela decisao:D05 em 14/11: targets, tidymodels, ranger, xgboost e renv nao foram dados em aula, e a regra do project e que metodo e convencao diferentes dos da professora sao erro."

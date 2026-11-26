@@ -1,0 +1,28 @@
+id: decisao:D03
+kind: decisao
+titulo: "Validar o pipeline com dados sintéticos antes de 28/10, sem esperar a base real"
+status: superada
+criado_em: 2026-10-06
+descricao: |
+  A base de treino e teste só é liberada em 28/10, e a submissão das previsões é em 18/11:
+  são três semanas. Até lá, o pipeline inteiro — ingestão, limpeza, construção de
+  features, split, treino, métricas, histograma de erros — é escrito e testado contra uma
+  base sintética de brinquedo, com relação conhecida entre features e resposta, para que
+  os testes possam afirmar que o pipeline recupera o que foi plantado.
+  
+  É o mesmo método que no B1 provou o MILP antes de existir dado real: instância de
+  brinquedo com ótimo calculado à mão. A diferença é que aqui o alvo do teste é
+  estatístico, então a asserção é sobre erro esperado, com seed fixa.
+alternativas_descartadas:
+  - opcao: "Esperar 28/10 e começar com o dado real"
+    por_que_nao: "Comprime três semanas de desenvolvimento em três semanas que também têm Lab4, Lab5, Lab6 e a Prova B2 — e qualquer surpresa no dado viraria atraso direto na submissão."
+  - opcao: "Usar uma base pública de taxi-out como substituta"
+    por_que_nao: "Melhor que sintético para a EDA, mas pior para teste: não se sabe a relação verdadeira, então o teste não tem o que verificar. Fica como material de revisão de literatura, não como fixture."
+arestas:
+  - {rel: DECIDE_SOBRE, dst: "meta:M1"}
+  - {rel: DECIDE_SOBRE, dst: "meta:M5"}
+  - {rel: ASSINADA_POR, dst: "pessoa:henri"}
+notas:
+  - data: 2026-11-14
+    autor: henri
+    texto: "Superada: a base real saiu em 28/10 e o pipeline sintetico foi aposentado junto com a estrutura targets (decisao:D05). Codigo em _arquivo/2026-10-06_app-targets/."

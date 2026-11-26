@@ -1,0 +1,26 @@
+id: ia:2026-11-14-scripts-b2
+kind: ia
+titulo: "Plano de implementação e scripts R 01 a 05 do Projeto B2"
+criado_em: 2026-11-14
+aceito: parcial
+descricao: |
+  O assistente leu os seis roteiros e os seis slides do 2º bimestre, escreveu o plano de
+  implementação e os cinco scripts no padrão dos Labs, e testou os scripts com a base real num
+  ambiente R 4.3 em nuvem, onde os pacotes tree e neuralnet não estavam disponíveis.
+critica_humana: |
+  O que não foi testado: os trechos com tree (árvore) e neuralnet (rede) rodaram no teste só com
+  substitutos (rpart e nnet) que imitam a interface, para conferir a "encanação" do código. Os
+  números da árvore e da rede que saírem no Mac são os primeiros números reais desses dois métodos.
+  O tempo da rede neural é desconhecido: limiar_nn = 0,1 e stepmax = 2e5 foram escolhidos sem
+  medição; se a validação cruzada demorar demais, aumentar o limiar é a primeira alavanca.
+  O que é escolha e não medição: os limiares da detecção de anomalias (r_i > 3; 2,5% de menor
+  densidade; clusters com menos de 1% dos voos; consenso de 2 de 4 critérios) são convenções,
+  não valores estimados. Eles só alimentam um experimento cuja adoção é decidida por validação
+  cruzada, e no teste a retirada dos anômalos piorou o RMSE em todos os modelos.
+  O que pode estar na borda: no teste em nuvem o gamma ótimo do SVM caiu na borda da grade original;
+  a grade foi ampliada e o script avisa se acontecer de novo.
+  O que ficou fraco: o kNN com 42 colunas, quase todas binárias, ficou bem pior que os outros
+  métodos (RMSE ~170 s no teste em nuvem). É resultado a reportar, não a esconder.
+arestas:
+  - {rel: DECIDE_SOBRE, dst: "meta:M3"}
+  - {rel: ASSINADA_POR, dst: "pessoa:henri"}

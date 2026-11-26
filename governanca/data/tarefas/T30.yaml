@@ -1,0 +1,19 @@
+id: tarefa:T30
+kind: tarefa
+titulo: "Estabelecer o baseline trivial"
+status: revisao
+prazo: 2026-11-07
+prioridade: alta
+estimativa_h: 2
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M3"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T15"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Média global e média por pista-gate-hora. Sem régua não se sabe se o modelo bom é bom; e o baseline costuma ser mais difícil de bater do que se espera."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Codigo pronto em Script 03, Etapa 1. Falta rodar no Mac e revisar o resultado."

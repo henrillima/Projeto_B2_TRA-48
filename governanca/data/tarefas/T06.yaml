@@ -1,0 +1,22 @@
+id: tarefa:T06
+kind: tarefa
+titulo: "Rodar os scripts com a base real no RStudio"
+status: feita
+prazo: 2026-10-13
+prioridade: alta
+estimativa_h: 4
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M5"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T03"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Relação conhecida entre features e resposta, seed fixa, para que o teste possa afirmar que o pipeline recupera o que foi plantado."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Reescopada pela decisao:D05 em 14/11. Titulo anterior: Escrever a base sintética de brinquedo e os testes que ela sustenta."
+  - data: 2026-11-18
+    autor: henri
+    texto: "Rodado no Mac com a base real em 18/11 (01:03 a 01:27). Dois ajustes na árvore: controle minsize=10, mincut=5 (o do Lab4 estoura o limite de profundidade do pacote) e escolha do tamanho por createFolds, porque a cv.tree recresce os folds com o controle padrão e deu RMSE idêntico de 9 a 756 folhas."

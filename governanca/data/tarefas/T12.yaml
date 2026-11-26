@@ -1,0 +1,19 @@
+id: tarefa:T12
+kind: tarefa
+titulo: "Escrever a rotina de ingestão com checagem de integridade"
+status: revisao
+prazo: 2026-11-01
+prioridade: alta
+estimativa_h: 4
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M1"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T11"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Contagem de linhas, duplicatas, chaves esperadas, faixa plausível de cada variável. Falha alto em vez de seguir com dado silenciosamente errado."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Codigo pronto em Script 01, Etapa 1, e Script 02, Etapa 1. Falta rodar no Mac e revisar o resultado."

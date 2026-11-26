@@ -1,0 +1,99 @@
+# ---------------------------------------------------------------------------
+# Artefatos de build — NUNCA commitar.
+# A única fonte de verdade é o texto em governanca/data/ e o código em app/R/.
+# O banco é artefato, como um .o. Commit de binário produz diff ilegível e
+# ruído não determinístico no histórico.
+# ---------------------------------------------------------------------------
+governanca/build/
+_site/
+
+# Pipeline do targets: o store é regenerável e grande
+_targets/
+!_targets.R
+
+# ---------------------------------------------------------------------------
+# A base do Data Challenge NÃO entra no git.
+# É material da disciplina, protegido por direito autoral e de uso exclusivo
+# dos alunos matriculados (slide 8 do planejamento do 2º bimestre). Este
+# repositório é público.
+# ---------------------------------------------------------------------------
+app/data/
+!app/data/raw/LEIAME.md
+
+# Saídas do pipeline: modelos e intermediários pesados ficam fora;
+# a submissão e as figuras do relatório entram, declaradas uma a uma.
+app/outputs/*
+!app/outputs/.gitkeep
+!app/outputs/figuras/
+!app/outputs/metricas/
+!app/outputs/submissao/
+
+# ---------------------------------------------------------------------------
+# R
+# ---------------------------------------------------------------------------
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+renv/library/
+renv/local/
+renv/cellar/
+renv/lock/
+renv/python/
+renv/staging/
+# renv.lock ENTRA no git — sem ele "rodar do zero" é afirmação falsa
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+# uv.lock ENTRA no git
+
+# ---------------------------------------------------------------------------
+# Relatório
+# ---------------------------------------------------------------------------
+relatorio/*.aux
+relatorio/*.log
+relatorio/*.out
+relatorio/*.toc
+relatorio/*.bbl
+relatorio/*.blg
+relatorio/*.fls
+relatorio/*.fdb_latexmk
+relatorio/*.synctex.gz
+.quarto/
+# o PDF final ENTRA — é entregável
+
+# ---------------------------------------------------------------------------
+# Sistema e editor
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# ---------------------------------------------------------------------------
+# Descarte temporário
+# ---------------------------------------------------------------------------
+_lixo/
+_scratch/
+
+# Base do challenge e derivados: material da disciplina, nunca no repositório
+*.Rda
+*.RData
+
+# Logs do console dos scripts R: ficam só na máquina (podem imprimir linhas da base).
+# A galeria figuras/index.html ENTRA no git, junto com as figuras.
+resultados/logs/
+# Versão autocontida da galeria (~11 MB, as figuras em base64): só para compartilhar, não versionar
+figuras/galeria_b2_completa.html
+_to_delete/

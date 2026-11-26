@@ -1,0 +1,10 @@
+id: meta:M3
+kind: meta
+titulo: "Treinar, validar e comparar pelo menos dois modelos supervisionados"
+status: aberta
+criado_em: 2026-10-06
+descricao: |
+  Mínimo exigido pelo enunciado: dois métodos de aprendizado supervisionado. A meta
+  acrescenta um baseline trivial, porque sem régua não se sabe se o modelo bom é bom.
+  Comparação com histograma de erros e RMSE, MAE e MAPE, e escolha do modelo final
+  justificada — não apenas o de menor RMSE, mas o defensável.

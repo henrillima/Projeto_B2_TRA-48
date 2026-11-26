@@ -1,0 +1,16 @@
+id: tarefa:T01
+kind: tarefa
+titulo: "Popular o grafo com as metas, decisões e pendências de abertura do B2"
+status: fazendo
+prazo: 2026-10-07
+prioridade: alta
+estimativa_h: 2
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M5"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T00"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Cinco metas, quatro decisões, quatro pendências. D04 entra como provisória porque o enunciado do B2 não fala de nota de processo."

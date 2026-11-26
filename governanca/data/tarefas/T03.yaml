@@ -1,0 +1,19 @@
+id: tarefa:T03
+kind: tarefa
+titulo: "Escrever os scripts R 01 a 05 no padrão dos Labs"
+status: revisao
+prazo: 2026-10-13
+prioridade: alta
+estimativa_h: 6
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M5"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T00"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Alvos: ler, limpar, construir features, dividir, treinar, avaliar, figurar. Rodando sobre a base sintética de decisao:D03."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Reescopada pela decisao:D05 em 14/11. Titulo anterior: Montar o esqueleto do pipeline targets para um problema de regressão."

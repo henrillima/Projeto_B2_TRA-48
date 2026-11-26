@@ -1,0 +1,18 @@
+id: tarefa:T04
+kind: tarefa
+titulo: "Instalar os pacotes da disciplina no RStudio"
+status: backlog
+prazo: 2026-10-09
+prioridade: alta
+estimativa_h: 2
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M5"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "tidymodels, ranger, xgboost, vip, corrplot, patchwork. renv.lock entra no git: sem ele 'rodar do zero' é afirmação falsa."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Reescopada pela decisao:D05 em 14/11. Titulo anterior: Fixar o ambiente R com renv e os pacotes de ML."

@@ -1,0 +1,19 @@
+id: tarefa:T14
+kind: tarefa
+titulo: "Construir as features candidatas de tempo de táxi na partida"
+status: revisao
+prazo: 2026-11-05
+prioridade: alta
+estimativa_h: 8
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M1"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T12"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Hipóteses a testar quando a base chegar: hora do dia e dia da semana; congestionamento no pátio (aeronaves em táxi na janela); pista em uso e posição do gate; distância ou rota gate-pista; tipo de aeronave e companhia; meteorologia. Literatura de taxi-out aponta congestionamento como dominante — confirmar no dado, não assumir."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Codigo pronto em Script 02, Etapa 3. Falta rodar no Mac e revisar o resultado."

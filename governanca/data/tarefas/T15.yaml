@@ -1,0 +1,19 @@
+id: tarefa:T15
+kind: tarefa
+titulo: "Definir o split de treino e validação respeitando a estrutura temporal"
+status: revisao
+prazo: 2026-11-05
+prioridade: alta
+estimativa_h: 3
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M1"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T12"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Amostragem aleatória em série temporal vaza informação do futuro para o treino e produz métrica otimista. Validação por blocos temporais, salvo se a base de teste do professor indicar outro desenho."
+  - data: 2026-11-14
+    autor: henri
+    texto: "Codigo pronto em Script 02, Etapa 4: particao aleatoria 75/25 do Lab6, porque a base de teste da professora e aleatoria no mes, nao temporal. Falta rodar no Mac e revisar o resultado."

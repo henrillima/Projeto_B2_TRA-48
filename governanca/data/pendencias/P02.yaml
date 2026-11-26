@@ -1,0 +1,18 @@
+id: pendencia:P02
+kind: pendencia
+titulo: "O esquema da base do Data Challenge é desconhecido até 28/10"
+status: fechada
+criado_em: 2026-10-06
+descricao: |
+  Não se sabe quais colunas a base de treino terá, qual a granularidade (voo a voo?
+  agregada por janela?), qual o período coberto, nem se traz meteorologia, pista em uso ou
+  contagem de aeronaves no pátio. Toda a construção de features depende disso. Enquanto
+  estiver aberta, as features existem apenas como hipótese documentada e como colunas da
+  base sintética de brinquedo.
+arestas:
+  - {rel: BLOQUEIA, dst: "tarefa:T13"}
+  - {rel: BLOQUEIA, dst: "tarefa:T14"}
+notas:
+  - data: 2026-11-04
+    autor: henri
+    texto: "Base publicada no Classroom em 28/10: data_project.Rda com data_train (6.426 voos) e data_test (1.607), 14 colunas, SBGR em janeiro de 2026. Variaveis descritas no apendice do enunciado. Arquivada em ITA/08-semestre/TRA-48/projetos/b2-data-challenge/."

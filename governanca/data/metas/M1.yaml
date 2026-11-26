@@ -1,0 +1,12 @@
+id: meta:M1
+kind: meta
+titulo: "Preparar a base do Data Challenge até o estado de matriz de treino"
+status: aberta
+criado_em: 2026-10-06
+descricao: |
+  Da base bruta liberada em 28/10 até um conjunto de treino e um de teste prontos para
+  ajuste: dicionário de dados conferido, integridade checada, faltantes e outliers
+  tratados com critério registrado, e features construídas com justificativa
+  operacional. O relatório exige, no item 2, a descrição desse pré-processamento —
+  então cada transformação precisa ter um porquê escrito no momento em que foi feita,
+  não reconstruído em 01/12.

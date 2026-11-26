@@ -1,0 +1,19 @@
+id: tarefa:T40
+kind: tarefa
+titulo: "Submeter as previsões para a base de teste"
+status: fazendo
+prazo: 2026-11-18
+prioridade: alta
+estimativa_h: 2
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M4"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T35"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Prazo 18/11. Conferir formato exigido assim que a base for liberada. É a entrega mais fácil de perder, porque não tem rascunho."
+  - data: 2026-11-18
+    autor: henri
+    texto: "Arquivo pronto e conferido em 18/11: entrega/data_project_test_HenriAntonioGilberto.Rda, 1.607 linhas, ids na ordem original, sem NA, demais colunas idênticas. Falta só enviar até 9:00."

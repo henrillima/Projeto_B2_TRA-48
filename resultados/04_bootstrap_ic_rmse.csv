@@ -1,0 +1,9 @@
+"modelo","rotulo","RMSE","ic95_inferior","ic95_superior"
+"M4_svm","M4 SVM (extensão)",130.3,125.2,135.5
+"M2_arvore","M2 árvore",137.3,131.4,143.4
+"M5_rede","M5 rede neural",142.7,135.8,149.5
+"M1_linear","M1 regressão linear",146.8,140.4,153.4
+"M1_log","M1 regressão linear (log)",150,142.8,157.7
+"M3_knn","M3 kNN",171.1,160.9,182.2
+"M0_cabeceira","M0 baseline (cabeceira)",251.3,239.1,263.6
+"M0_media","M0 baseline (média)",277,263.8,290.8

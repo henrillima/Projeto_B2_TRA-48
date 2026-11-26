@@ -1,0 +1,16 @@
+id: tarefa:T02
+kind: tarefa
+titulo: "Publicar o site de governança no GitHub Pages"
+status: backlog
+prazo: 2026-10-09
+prioridade: media
+estimativa_h: 1
+criado_em: 2026-10-06
+arestas:
+  - {rel: REALIZA, dst: "meta:M5"}
+  - {rel: ATRIBUIDA_A, dst: "pessoa:henri"}
+  - {rel: DEPENDE_DE, dst: "tarefa:T01"}
+notas:
+  - data: 2026-10-06
+    autor: henri
+    texto: "Pré-requisito manual, uma vez: Settings -> Pages -> Source = GitHub Actions. Sem isso o job de deploy falha com 'Pages not enabled'."

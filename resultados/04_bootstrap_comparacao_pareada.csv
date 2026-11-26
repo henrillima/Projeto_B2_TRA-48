@@ -1,0 +1,5 @@
+"modelo","dif_rmse","ic_inferior","ic_superior","empata_com_o_primeiro"
+"M2_arvore",7,2.4,12,FALSE
+"M5_rede",12.4,8.1,16.5,FALSE
+"M1_linear",16.5,12.2,20.9,FALSE
+"M3_knn",40.8,32.1,50.2,FALSE
